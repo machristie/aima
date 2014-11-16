@@ -434,10 +434,10 @@ class TrivialVacuumEnvironment(Environment):
     status. This serves as an example of how to implement a simple
     Environment."""
 
-    def __init__(self):
+    def __init__(self, A_status=None, B_status=None):
         super(TrivialVacuumEnvironment, self).__init__()
-        self.status = {loc_A: random.choice(['Clean', 'Dirty']),
-                       loc_B: random.choice(['Clean', 'Dirty'])}
+        self.status = {loc_A: A_status or random.choice(['Clean', 'Dirty']),
+                       loc_B: B_status or random.choice(['Clean', 'Dirty'])}
 
     def thing_classes(self):
         return [Wall, Dirt, ReflexVacuumAgent, RandomVacuumAgent,
